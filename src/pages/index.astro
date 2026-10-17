@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHead from '../components/SectionHead.astro';
+import CaseCard from '../components/CaseCard.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { services, process, url } from '../data/site';
+
+const featured = (await getCollection('work'))
+  .filter((e) => e.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+---
+
+<Base>
+  <section class="hero">
+    <p class="eyebrow" data-reveal>MARKETING • CONTENT • CREATIVES</p>
+    <h1>
+      <span class="rise"><span style="--i:0">Make your brand</span></span>
+      <span class="rise"><span style="--i:1"><em>hard to ignore.</em></span></span>
+    </h1>
+    <p class="lede" data-reveal style="--i:2">Studio Ra Hu builds the strategy, content and creative systems businesses need to become clearer, more visible and easier to choose.</p>
+    <div class="actions" data-reveal style="--i:3">
+      <a class="button" href={url('/contact/')}>Work with us</a>
+      <a class="text-link" href={url('/work/')}>See selected work →</a>
+    </div>
+  </section>
+
+  <section class="statement">
+    <p class="eyebrow" data-reveal>THE APPROACH</p>
+    <h2 data-reveal>Good marketing isn't more noise. It's a clearer reason to choose you.</h2>
+    <p data-reveal>We combine strategy, storytelling and execution to build marketing that is useful to the business — not just attractive on a screen.</p>
+  </section>
+
+  <section id="services" class="section">
+    <SectionHead number="01" title="What we do" />
+    <div class="services">
+      {services.map((s, i) => (
+        <article data-reveal style={`--i:${i % 3}`}>
+          <b>{String(i + 1).padStart(2, '0')}</b>
+          <h3>{s.title}</h3>
+          <p>{s.summary}</p>
+        </article>
+      ))}
+      {services.length % 3 !== 0 && (
+        <article class="services-cta" data-reveal style={`--i:${services.length % 3}`}>
+          <a href={url('/services/')}>See every service →</a>
+          <p style="margin-top:12px">{services.reduce((n, s) => n + s.deliverables.length, 0)} services across {services.length} practices.</p>
+        </article>
+      )}
+    </div>
+  </section>
+
+  <section id="work" class="section work">
+    <SectionHead number="02" title="Selected work" />
+    <p class="section-intro" data-reveal>A few examples of the kind of problems Studio Ra Hu is built to solve.</p>
+    <div class="cases">
+      {featured.map((entry, i) => <CaseCard entry={entry} index={i} />)}
+    </div>
+    <div class="section-foot" data-reveal><a class="text-link" href={url('/work/')}>See all case studies →</a></div>
+  </section>
+
+  <section id="process" class="section process">
+    <SectionHead number="03" title="How we work" />
+    <div class="steps">
+      {process.map((p, i) => (
+        <div data-reveal style={`--i:${i}`}>
+          <span>{String(i + 1).padStart(2, '0')}</span>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="belief">
+    <p class="eyebrow" data-reveal>A SIMPLE BELIEF</p>
+    <blockquote data-reveal>“The goal is not to produce more marketing. It is to make the right marketing matter.”</blockquote>
+  </section>
+
+  <section id="contact" class="contact">
+    <div data-reveal>
+      <p class="eyebrow">LET'S TALK</p>
+      <h2>Have a marketing problem worth solving?</h2>
+      <p>Tell us what you're building, where you're stuck, or what needs to change.</p>
+    </div>
+    <ContactForm />
+  </section>
+</Base>

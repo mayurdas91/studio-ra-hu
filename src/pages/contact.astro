@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site } from '../data/site';
+---
+
+<Base title="Contact" description="Tell Studio Ra Hu what you're building, where you're stuck, or what needs to change.">
+  <section class="contact" style="min-height:calc(100vh - 78px - 80px);align-items:center">
+    <div data-reveal>
+      <p class="eyebrow">LET'S TALK</p>
+      <h1>Have a marketing problem worth solving?</h1>
+      <p>Tell us what you're building, where you're stuck, or what needs to change.</p>
+      {(site.email || site.linkedin) && (
+        <div class="contact-alt">
+          {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
+          {site.linkedin && <a href={site.linkedin} rel="noopener">LinkedIn →</a>}
+        </div>
+      )}
+    </div>
+    <ContactForm />
+  </section>
+</Base>
