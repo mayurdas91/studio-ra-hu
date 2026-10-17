@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CaseCard from '../../components/CaseCard.astro';
+
+const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title="Work" description="Case studies from Studio Ra Hu: strategy, content and creative work for real business problems.">
+  <section class="page-hero">
+    <p class="eyebrow" data-reveal>SELECTED WORK</p>
+    <h1 data-reveal style="--i:1">Problems worth solving, and how we solved them.</h1>
+    <p class="lede" data-reveal style="--i:2">Each case study covers the situation, the thinking behind the work and what changed.</p>
+  </section>
+  <section class="section">
+    <div class="cases">
+      {work.map((entry, i) => <CaseCard entry={entry} index={i} />)}
+    </div>
+    <p class="note">Case-study metrics are only shown once verified with the client. No invented numbers.</p>
+  </section>
+</Base>

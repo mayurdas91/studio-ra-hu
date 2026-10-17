@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHead from '../components/SectionHead.astro';
+import { services, process, url } from '../data/site';
+
+const work = await getCollection('work');
+const relatedTo = (id: string) =>
+  work.filter((w) => w.data.services.includes(id)).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title="Services" description="Content strategy, content creation, SEO, social media, brand and digital marketing from Studio Ra Hu.">
+  <section class="page-hero">
+    <p class="eyebrow" data-reveal>SERVICES</p>
+    <h1 data-reveal style="--i:1">Strategy, content and creative, built to work together.</h1>
+    <p class="lede" data-reveal style="--i:2">Take a single service or combine them into one marketing system. Either way, every piece of work is tied back to what the business needs.</p>
+  </section>
+
+  <section class="section">
+    <div class="service-rows">
+      {services.map((s, i) => {
+        const related = relatedTo(s.id);
+        return (
+          <div class="service-row" id={s.id} data-reveal>
+            <span>{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h2>{s.title}</h2>
+              <p>{s.summary}</p>
+              {related.length > 0 && (
+                <p class="related">
+                  See it in practice:{' '}
+                  {related.map((r, j) => (
+                    <>{j > 0 && ', '}<a href={url(`/work/${r.id}/`)}>{r.data.sector}</a></>
+                  ))}
+                </p>
+              )}
+            </div>
+            <ul>{s.deliverables.map((d) => <li>{d}</li>)}</ul>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="section process">
+    <SectionHead number="—" title="How we work" />
+    <div class="steps">
+      {process.map((p, i) => (
+        <div data-reveal style={`--i:${i}`}>
+          <span>{String(i + 1).padStart(2, '0')}</span>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="statement">
+    <p class="eyebrow" data-reveal>NOT SURE WHAT YOU NEED?</p>
+    <h2 data-reveal>Start with the problem. We'll work out the right mix together.</h2>
+    <p data-reveal><a class="button" style="background:var(--paper);color:var(--ink);display:inline-block" href={url('/contact/')}>Start a conversation</a></p>
+  </section>
+</Base>
