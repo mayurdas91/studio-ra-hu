@@ -4,7 +4,7 @@ export const site = {
   name: 'Studio Ra Hu',
   tagline: 'Strategic marketing. Creative execution.',
   description:
-    'Studio Ra Hu — strategic marketing, content, creative and digital execution.',
+    'Studio Ra Hu — digital marketing, brand management, video production, software development and customer success.',
 
   // Contact form goes through FormSubmit (https://formsubmit.co), because
   // GitHub Pages can't run a server. Replace with your email, submit the form
@@ -32,46 +32,99 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    id: 'content-strategy',
-    title: 'Content Strategy',
+    id: 'digital-marketing',
+    title: 'Digital Marketing',
     summary:
-      'Turn business goals into a clear content direction, editorial calendar and repeatable system.',
-    deliverables: ['Content audit', 'Audience & message mapping', 'Editorial calendar', 'Content operating system'],
-  },
-  {
-    id: 'content-creation',
-    title: 'Content Creation',
-    summary:
-      'Website copy, articles, thought leadership, marketing collateral and campaign content built around the audience.',
-    deliverables: ['Website copy', 'Articles & thought leadership', 'Marketing collateral', 'Campaign content'],
-  },
-  {
-    id: 'seo',
-    title: 'SEO & Search Content',
-    summary:
-      'Keyword research, search-led content, on-page optimisation and content designed to earn relevant organic visibility.',
-    deliverables: ['Keyword research', 'Search-led content plans', 'On-page optimisation', 'Content refreshes'],
-  },
-  {
-    id: 'social',
-    title: 'Social Media Marketing',
-    summary:
-      'Platform strategy, content calendars, creative direction and day-to-day communication that feels like a brand, not a content mill.',
-    deliverables: ['Platform strategy', 'Content calendars', 'Creative direction', 'Community communication'],
+      'Strategy and execution across search, paid, social, email and content, measured and improved over time.',
+    deliverables: [
+      'Marketing strategy & consultation',
+      'SEO',
+      'Landing page design & optimization',
+      'PPC advertising',
+      'Social media management',
+      'Email marketing',
+      'Content marketing',
+      'Marketing analytics',
+      'Marketing automation',
+      'Online reputation management',
+    ],
   },
   {
     id: 'brand',
-    title: 'Brand & Creative',
+    title: 'Brand Management',
     summary:
-      'Positioning, messaging, campaign concepts, visual direction and marketing assets that make the brand more coherent.',
-    deliverables: ['Positioning & messaging', 'Campaign concepts', 'Visual direction', 'Launch assets'],
+      'Positioning, identity and guidelines that make a brand clear, consistent and easy to recognise.',
+    deliverables: [
+      'Brand strategy & positioning',
+      'Logo design & visual identity',
+      'Brand guidelines development',
+      'Naming & tagline development',
+      'Brand tone development',
+      'Rebranding',
+      'Brand audits',
+      'Packaging design',
+      'Brand architecture',
+      'Market research',
+      'Brand experience design',
+      'Brand reputation management',
+    ],
   },
   {
-    id: 'digital',
-    title: 'Digital Marketing',
+    id: 'video',
+    title: 'Video Editing & Production',
     summary:
-      'Integrated marketing support across content, SEO, social, email and digital channels, with execution tied back to objectives.',
-    deliverables: ['Channel planning', 'Email marketing', 'Integrated campaigns', 'Performance reviews'],
+      'Video from script to final cut, for products, companies and channels.',
+    deliverables: [
+      'Scripting & storyboarding',
+      'Post-production',
+      'Motion graphics & animation',
+      'Sound design & audio mixing',
+      'Voiceover recording & sourcing',
+      'Explainer video production',
+      'Product demo videos',
+      'Corporate video production',
+      'Live streaming production',
+      'YouTube channel management',
+    ],
+  },
+  {
+    id: 'software',
+    title: 'Software Development',
+    summary:
+      'Web, mobile and custom software, from first prototype to long-term maintenance.',
+    deliverables: [
+      'Custom software development',
+      'Web application development',
+      'UI/UX design & prototyping',
+      'Mobile app development (Android)',
+      'API development',
+      'Database design & management',
+      'Software testing',
+      'Software maintenance & support',
+      'Legacy system modernization',
+      'E-commerce development',
+      'SaaS product development',
+      'MVP development for startups',
+    ],
+  },
+  {
+    id: 'customer-success',
+    title: 'Customer Success Management',
+    summary:
+      'Onboarding, retention and growth programmes that keep customers successful after the sale.',
+    deliverables: [
+      'Onboarding & implementation management',
+      'Customer health scoring & monitoring',
+      'Renewal & retention management',
+      'Upsell & cross-sell strategy',
+      'Churn analysis & prevention',
+      'Customer journey mapping',
+      'Voice-of-customer programs',
+      'Playbook development for CS teams',
+      'Customer training & enablement',
+      'Escalation management',
+      'Post-sale relationship management',
+    ],
   },
 ];
 

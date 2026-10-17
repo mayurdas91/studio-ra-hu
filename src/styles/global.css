@@ -142,7 +142,7 @@ blockquote { font-size: clamp(35px, 5vw, 70px); letter-spacing: -.055em; line-he
 .service-rows { border-top: 1px solid var(--line); }
 .service-row {
   display: grid;
-  grid-template-columns: 70px 1.1fr 1fr;
+  grid-template-columns: 70px 1fr 1.25fr;
   gap: 40px;
   padding: 50px 0;
   border-bottom: 1px solid var(--line);
@@ -154,6 +154,26 @@ blockquote { font-size: clamp(35px, 5vw, 70px); letter-spacing: -.055em; line-he
 .service-row li { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
 .service-row .related { margin-top: 20px; font-size: 13px; }
 .service-row .related a { text-decoration: none; border-bottom: 1px solid var(--line); }
+
+/* Jump links and two-column service lists */
+.service-jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; }
+.service-jump a {
+  text-decoration: none;
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  font-size: 13px;
+  transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+}
+.service-jump a span { font: 11px var(--mono); color: var(--muted); margin-right: 8px; }
+.service-jump a:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.service-jump a:hover span { color: var(--on-ink-muted); }
+.service-row { scroll-margin-top: 100px; }
+.service-row .service-list { columns: 2; column-gap: 28px; border-top: 0; }
+.service-row .service-list li { break-inside: avoid; border-top: 1px solid var(--line); border-bottom: 0; }
+
+/* Home: the tile that fills the last cell of the services grid */
+.services .services-cta { display: flex; flex-direction: column; justify-content: flex-end; }
+.services .services-cta a { text-decoration: none; font-size: 24px; font-weight: 700; letter-spacing: -.035em; }
 
 /* ---------- Case study cards ---------- */
 .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -324,6 +344,8 @@ footer a:hover { color: var(--ink); }
   .steps div { min-height: auto; }
   .contact { gap: 60px; }
   .service-row { grid-template-columns: 1fr; gap: 20px; }
+  .service-row .service-list { columns: 1; }
+  .services .services-cta { min-height: auto; }
   .cs-meta { grid-template-columns: 1fr 1fr; margin: 0 7vw; }
   .cs-meta div:nth-child(3) { padding-left: 0; border-left: 0; }
   .cs-meta div:nth-child(n+3) { border-top: 1px solid var(--line); }

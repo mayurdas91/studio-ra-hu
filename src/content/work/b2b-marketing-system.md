@@ -6,7 +6,7 @@ featured: true
 placeholder: true
 summary: Replacing one-off content with a positioning-led marketing system covering strategy, SEO and planning.
 disciplines: [Positioning, Content strategy, SEO, Marketing planning]
-services: [content-strategy, seo, digital]
+services: [digital-marketing]
 steps: [Discovery, Strategy, Content, Distribution]
 ---
 

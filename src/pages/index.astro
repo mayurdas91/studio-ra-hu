@@ -42,8 +42,13 @@ const featured = (await getCollection('work'))
           <p>{s.summary}</p>
         </article>
       ))}
+      {services.length % 3 !== 0 && (
+        <article class="services-cta" data-reveal style={`--i:${services.length % 3}`}>
+          <a href={url('/services/')}>See every service →</a>
+          <p style="margin-top:12px">{services.reduce((n, s) => n + s.deliverables.length, 0)} services across {services.length} practices.</p>
+        </article>
+      )}
     </div>
-    <div class="section-foot" data-reveal><a class="text-link" href={url('/services/')}>All services in detail →</a></div>
   </section>
 
   <section id="work" class="section work">

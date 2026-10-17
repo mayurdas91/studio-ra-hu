@@ -6,7 +6,7 @@ featured: true
 placeholder: true
 summary: Restructuring a hospital's institutional information into an editorial newsletter that patients and staff could follow.
 disciplines: [Editorial strategy, Newsletter, Institutional storytelling, Information design]
-services: [content-strategy, content-creation]
+services: [digital-marketing]
 steps: [Research, Structure, Edit, Design]
 ---
 

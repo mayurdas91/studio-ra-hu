@@ -9,11 +9,14 @@ const relatedTo = (id: string) =>
   work.filter((w) => w.data.services.includes(id)).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<Base title="Services" description="Content strategy, content creation, SEO, social media, brand and digital marketing from Studio Ra Hu.">
+<Base title="Services" description="Digital marketing, brand management, video editing and production, software development and customer success management from Studio Ra Hu.">
   <section class="page-hero">
     <p class="eyebrow" data-reveal>SERVICES</p>
-    <h1 data-reveal style="--i:1">Strategy, content and creative, built to work together.</h1>
-    <p class="lede" data-reveal style="--i:2">Take a single service or combine them into one marketing system. Either way, every piece of work is tied back to what the business needs.</p>
+    <h1 data-reveal style="--i:1">From brand and marketing to software and customer success.</h1>
+    <p class="lede" data-reveal style="--i:2">Take a single service or combine several. Either way, every piece of work is tied back to what the business needs.</p>
+    <nav class="service-jump" aria-label="Service groups" data-reveal style="--i:3">
+      {services.map((s, i) => <a href={`#${s.id}`}><span>{String(i + 1).padStart(2, '0')}</span>{s.title}</a>)}
+    </nav>
   </section>
 
   <section class="section">
@@ -35,7 +38,7 @@ const relatedTo = (id: string) =>
                 </p>
               )}
             </div>
-            <ul>{s.deliverables.map((d) => <li>{d}</li>)}</ul>
+            <ul class="service-list">{s.deliverables.map((d) => <li>{d}</li>)}</ul>
           </div>
         );
       })}

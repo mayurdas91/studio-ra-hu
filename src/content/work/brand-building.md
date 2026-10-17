@@ -6,7 +6,7 @@ featured: true
 placeholder: true
 summary: Creating positioning, messaging, creative direction and launch assets for a brand starting from zero.
 disciplines: [Brand positioning, Messaging, Creative direction, Launch assets]
-services: [brand, content-creation]
+services: [brand]
 steps: [Identity, Narrative, Assets, Launch]
 ---
 
