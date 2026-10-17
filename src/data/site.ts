@@ -2,14 +2,14 @@
 
 export const site = {
   name: 'Studio Ra Hu',
-  tagline: 'Strategic marketing. Creative execution.',
+  tagline: 'Strategy, creative and technology. Built to work together.',
   description:
     'Studio Ra Hu — digital marketing, brand management, video production, software development and customer success.',
 
   // Contact form goes through FormSubmit (https://formsubmit.co), because
   // GitHub Pages can't run a server. Replace with your email, submit the form
   // once, and click the activation link FormSubmit emails you.
-  formEmail: 'YOUR_EMAIL_HERE',
+  formEmail: 'mayur.das91@gmail.com',
 
   // Optional: shown on the contact page as a fallback. Leave '' to hide.
   email: '',
@@ -130,8 +130,8 @@ export const services: Service[] = [
 
 export const process = [
   { title: 'Discover', text: 'Understand the business, audience and actual problem.' },
-  { title: 'Strategise', text: 'Turn the problem into a focused marketing direction.' },
-  { title: 'Create', text: 'Build the messaging, content and creative assets.' },
-  { title: 'Launch', text: 'Put the work into the channels where it can matter.' },
+  { title: 'Strategise', text: 'Turn the problem into a focused plan and direction.' },
+  { title: 'Create', text: 'Build the brand, content, video or software the plan calls for.' },
+  { title: 'Launch', text: 'Put the work in front of the people it is meant for.' },
   { title: 'Optimise', text: 'Learn from performance and improve what comes next.' },
 ];
