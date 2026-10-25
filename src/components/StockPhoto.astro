@@ -1,0 +1,39 @@
+---
+// A photo served from Unsplash's image CDN, which resizes it per screen size.
+// Unsplash License: free for commercial use, no permission needed.
+import type { Photo } from '../data/site';
+
+interface Props {
+  photo: Photo;
+  /** Width/height ratio of the frame, e.g. 16 / 7 */
+  ratio: number;
+  /** How wide the image is on screen, for the browser to pick a size */
+  sizes: string;
+  class?: string;
+  eager?: boolean;
+  /** Wipe the photo in when it scrolls into view */
+  wipe?: boolean;
+}
+
+const { photo, ratio, sizes, class: className, eager = false, wipe = false } = Astro.props;
+const widths = [480, 800, 1200, 1600, 2400];
+const src = (w: number) =>
+  `https://images.unsplash.com/${photo.id}?w=${w}&h=${Math.round(w / ratio)}&fit=crop&crop=entropy&auto=format&q=70`;
+---
+
+<figure class:list={['photo', className, { wipe }]} style={`aspect-ratio:${ratio}`} data-reveal={wipe ? '' : undefined}>
+  <img
+    src={src(1200)}
+    srcset={widths.map((w) => `${src(w)} ${w}w`).join(', ')}
+    sizes={sizes}
+    width="1200"
+    height={Math.round(1200 / ratio)}
+    alt={photo.alt}
+    loading={eager ? 'eager' : 'lazy'}
+    fetchpriority={eager ? 'high' : undefined}
+    decoding="async"
+  />
+  <figcaption>
+    Photo: <a href={`https://unsplash.com/@${photo.username}?utm_source=studio_ra_hu&utm_medium=referral`} rel="noopener">{photo.credit}</a> / <a href="https://unsplash.com/?utm_source=studio_ra_hu&utm_medium=referral" rel="noopener">Unsplash</a>
+  </figcaption>
+</figure>

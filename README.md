@@ -37,6 +37,17 @@ npm run build    # outputs to dist/
 5. Add `results:` only with numbers the client has verified.
 6. Remove `placeholder: true` when the write-up is final. That hides the draft flag.
 
+## Photos on the home and services pages
+
+These are free photos from [Unsplash](https://unsplash.com), loaded from Unsplash's image server and set in `src/data/site.ts` (`heroPhoto`, and `photo` under each service).
+
+To swap one:
+1. Open the photo on unsplash.com and check it says **Free to use under the Unsplash License** (not Unsplash+).
+2. Right-click the photo → Copy image address. Take the part that starts with `photo-` and ends before `?`.
+3. Paste it as `id`, and update `alt`, `credit` (photographer's name) and `username` (from their profile link).
+
+Photos show in black and white to match the site and turn to colour on hover. The photographer credit appears on hover.
+
 ## Contact form
 
 GitHub Pages can't run server code, so the form posts to [FormSubmit](https://formsubmit.co).

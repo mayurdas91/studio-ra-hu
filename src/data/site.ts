@@ -23,11 +23,28 @@ export function url(path = '/'): string {
   return `${base}${clean}`;
 }
 
+/** A free photo from unsplash.com. `id` is the part of the image URL after images.unsplash.com/ */
+export type Photo = {
+  id: string;
+  alt: string;
+  credit: string; // photographer's name
+  username: string; // photographer's Unsplash username
+};
+
+// Home page hero image
+export const heroPhoto: Photo = {
+  id: 'photo-1722884263519-f6981e9deabb',
+  alt: 'A minimal desk with a computer monitor and keyboard',
+  credit: 'hellobeekay',
+  username: 'hellobeekay',
+};
+
 export type Service = {
   id: string;
   title: string;
   summary: string;
   deliverables: string[];
+  photo: Photo;
 };
 
 export const services: Service[] = [
@@ -48,6 +65,12 @@ export const services: Service[] = [
       'Marketing automation',
       'Online reputation management',
     ],
+    photo: {
+      id: 'photo-1686061592689-312bbfb5c055',
+      alt: 'A computer screen showing a bar chart on a marketing analytics dashboard',
+      credit: '1981 Digital',
+      username: '1981digital',
+    },
   },
   {
     id: 'brand',
@@ -68,6 +91,12 @@ export const services: Service[] = [
       'Brand experience design',
       'Brand reputation management',
     ],
+    photo: {
+      id: 'photo-1716471330475-f0669db8947a',
+      alt: 'Colour swatch cards arranged in a circle on a white surface',
+      credit: 'Andy Brown',
+      username: 'basallt',
+    },
   },
   {
     id: 'video',
@@ -86,6 +115,12 @@ export const services: Service[] = [
       'Live streaming production',
       'YouTube channel management',
     ],
+    photo: {
+      id: 'photo-1574717025179-0b6d03d4d86f',
+      alt: 'A monitor showing a video editing timeline with audio waveforms',
+      credit: 'Peter Stumpf',
+      username: 'peter_s',
+    },
   },
   {
     id: 'software',
@@ -106,6 +141,12 @@ export const services: Service[] = [
       'SaaS product development',
       'MVP development for startups',
     ],
+    photo: {
+      id: 'photo-1763568258535-fa1066506571',
+      alt: 'A computer screen displaying lines of code',
+      credit: 'Daniil Komov',
+      username: 'dkomow',
+    },
   },
   {
     id: 'customer-success',
@@ -125,6 +166,12 @@ export const services: Service[] = [
       'Escalation management',
       'Post-sale relationship management',
     ],
+    photo: {
+      id: 'photo-1517245386807-bb43f82c33c4',
+      alt: 'A person gesturing during a meeting around a laptop',
+      credit: 'Headway',
+      username: 'headwayio',
+    },
   },
 ];
 
