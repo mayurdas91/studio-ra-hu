@@ -8,7 +8,7 @@ Live at: https://mayurdas91.github.io/studio-ra-hu/
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321/studio-ra-hu/
+npm run dev      # http://localhost:4321/
 npm run build    # outputs to dist/
 ```
 

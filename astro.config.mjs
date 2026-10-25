@@ -1,16 +1,23 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// The site is deployed to two hosts:
-// - Netlify serves it from the domain root (https://studiorahu.netlify.app/).
-//   Netlify sets NETLIFY=true and URL=<primary site URL> during builds.
-// - GitHub Pages serves this repo at https://mayurdas91.github.io/studio-ra-hu/
-// If you move to a custom domain (e.g. studiorahu.com), set `site` to that
-// domain and change `base` to '/'.
-const onNetlify = process.env.NETLIFY === 'true';
+// The same code is deployed to several hosts:
+// - GitHub Pages serves it under a sub-folder: https://mayurdas91.github.io/studio-ra-hu/
+//   That build runs in GitHub Actions, which sets GITHUB_ACTIONS=true.
+// - Netlify, Vercel and anything else serve it from the domain root.
+// If you move GitHub Pages to a custom domain, change the Pages base to '/'.
+const env = process.env;
+const onGitHubPages = env.GITHUB_ACTIONS === 'true';
+
+function siteUrl() {
+  if (onGitHubPages) return 'https://mayurdas91.github.io';
+  if (env.NETLIFY === 'true' && env.URL) return env.URL;
+  if (env.VERCEL && env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  return 'http://localhost:4321';
+}
 
 export default defineConfig({
-  site: onNetlify ? process.env.URL : 'https://mayurdas91.github.io',
-  base: onNetlify ? '/' : '/studio-ra-hu',
+  site: siteUrl(),
+  base: onGitHubPages ? '/studio-ra-hu' : '/',
   trailingSlash: 'ignore',
 });
