@@ -319,9 +319,11 @@ footer a:hover { color: var(--ink); }
 .js [data-reveal].is-in { opacity: 1; transform: none; }
 
 /* Hero headline: each line rises in on load */
-.rise { display: block; overflow: hidden; padding-bottom: .06em; }
+/* Each line is a mask the text rises through. The extra bottom padding leaves
+   room for descenders (g, y, p), and the negative margin keeps line spacing. */
+.rise { display: block; overflow: hidden; padding-bottom: .26em; margin-bottom: -.2em; }
 .rise > span { display: block; animation: rise 1.1s var(--ease) both; animation-delay: calc(var(--i, 0) * 120ms + 100ms); }
-@keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes rise { from { transform: translateY(140%); } to { transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
