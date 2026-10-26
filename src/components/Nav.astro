@@ -4,19 +4,21 @@ import { url } from '../data/site';
 const links = [
   { href: '/services/', label: 'Services' },
   { href: '/work/', label: 'Work' },
-  { href: '/#process', label: 'Process' },
   { href: '/contact/', label: 'Contact' },
 ];
 
 const here = Astro.url.pathname.replace(/\/$/, '');
 const isCurrent = (href: string) => {
   const target = url(href).replace(/\/$/, '');
-  return !href.includes('#') && (here === target || here.startsWith(target + '/'));
+  return here === target || here.startsWith(target + '/');
 };
 ---
 
 <header class="nav" transition:persist>
-  <a class="brand" href={url('/')}>STUDIO <span>RA HU</span></a>
+  <a class="brand" href={url('/')} aria-label="Studio Ra Hu, home">
+    <span class="logo" aria-hidden="true"></span>
+    STUDIO RA HU
+  </a>
   <nav aria-label="Main">
     {links.map((l) => (
       <a href={url(l.href)} aria-current={isCurrent(l.href) ? 'page' : undefined}>{l.label}</a>

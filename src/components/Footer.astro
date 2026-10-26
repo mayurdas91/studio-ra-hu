@@ -1,13 +1,16 @@
 ---
-import { site, url } from '../data/site';
+import { url } from '../data/site';
 ---
 
 <footer>
-  <span>STUDIO RA HU · © {new Date().getFullYear()}</span>
+  <a class="brand" href={url('/')}>
+    <span class="logo" aria-hidden="true"></span>
+    STUDIO RA HU
+  </a>
   <nav aria-label="Footer">
     <a href={url('/services/')}>Services</a>
     <a href={url('/work/')}>Work</a>
     <a href={url('/contact/')}>Contact</a>
   </nav>
-  <span>{site.tagline}</span>
+  <span>Seen and heard. © {new Date().getFullYear()}</span>
 </footer>

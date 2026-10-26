@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import CaseArt from './CaseArt.astro';
 import { url } from '../data/site';
 
 interface Props { entry: CollectionEntry<'work'>; index: number; }
@@ -10,16 +11,13 @@ const num = String(d.order).padStart(2, '0');
 ---
 
 <a class="case" href={url(`/work/${entry.id}/`)} data-reveal style={`--i:${index % 3}`}>
-  {d.cover && (
-    <div class="case-cover">
+  {d.cover ? (
+    <div class="case-art">
       <Image src={d.cover} alt={d.coverAlt ?? ''} widths={[480, 800]} sizes="(max-width: 900px) 100vw, 33vw" />
     </div>
+  ) : (
+    <CaseArt variant={d.order} />
   )}
-  <div class="case-no">CASE {num} · {d.sector}</div>
+  <span class="case-no">{num} · {d.sector}</span>
   <h3 transition:name={`case-title-${entry.id}`}>{d.title}</h3>
-  <p>{d.disciplines.join(' · ')}</p>
-  <div class="case-line">
-    <span>{d.steps.join(' → ')}</span>
-    <span class="arrow" aria-hidden="true">→</span>
-  </div>
 </a>

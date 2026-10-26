@@ -23,6 +23,12 @@ export function url(path = '/'): string {
   return `${base}${clean}`;
 }
 
+// The figures on the rising sun on the home page.
+export const stats = [
+  { value: '10+', label: 'Years' },
+  { value: '120+', label: 'Projects' },
+];
+
 export type Service = {
   id: string;
   title: string;
