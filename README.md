@@ -1,52 +1,53 @@
-# Studio Ra Hu
+# STUDIO RA HU
 
-Portfolio site for Studio Ra Hu, built with [Astro](https://astro.build) and deployed to GitHub Pages.
-
-Live at: https://mayurdas91.github.io/studio-ra-hu/
+Website for Studio Ra Hu, built with [Next.js](https://nextjs.org) (React) in the "Sunrise" design.
+It exports plain static files, so it runs on Vercel, Netlify and GitHub Pages from the same code.
 
 ## Run it locally
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321/
-npm run build    # outputs to dist/
+npm run dev      # http://localhost:3000
+npm run build    # outputs the finished site to out/
 ```
 
 ## Where things live
 
 | What | Where |
 | --- | --- |
-| Case studies (one Markdown file each) | `src/content/work/` |
-| Case study images and client logos | `src/assets/work/` |
-| Services, process steps, form email | `src/data/site.ts` |
-| Colours, fonts, animations | `src/styles/global.css` |
-| Pages | `src/pages/` |
+| Name, the figures on the sun (10+ Years, 120+ Projects), form email, services | `lib/site.ts` |
+| Case studies (one Markdown file each) | `content/work/` |
+| Colours, fonts, animations | `app/globals.css` (colour tokens at the top) |
+| Logo | `app/logo-mask.png` (recoloured by CSS), `app/icon.png` (browser tab) |
+| Pages | `app/` (`page.tsx` is the home page) |
+| Shared pieces (header, footer, sun, cards, form) | `components/` |
+
+## Changing the figures on the sun
+
+Edit `stats` in `lib/site.ts`.
 
 ## Adding or editing a case study
 
-1. Copy any file in `src/content/work/` and rename it. The file name becomes the URL.
-2. Fill in the frontmatter at the top. `order` sets its position; `featured: true` puts it on the home page (the first three are shown).
+1. Copy any file in `content/work/` and rename it. The file name becomes the URL.
+2. Fill in the fields at the top. `order` sets its position; `featured: true` puts it on the home page (the first three are shown).
 3. Write the story under the four headings.
-4. Add images to `src/assets/work/` and reference them:
+4. For a cover image, put it in `public/work/` and add `cover: /work/your-image.jpg` and `coverAlt: Short description`.
+5. Add `results:` only with numbers the client has verified, e.g.
    ```yaml
-   cover: ../../assets/work/my-cover.jpg
-   coverAlt: Short description of the image
-   logo: ../../assets/work/client-logo.svg
+   results:
+     - value: 3×
+       label: More qualified leads
    ```
-   Astro resizes and compresses them at build time.
-5. Add `results:` only with numbers the client has verified.
-6. Remove `placeholder: true` when the write-up is final. That hides the draft flag.
+6. Remove `placeholder: true` when the write-up is final. That hides the "Draft" label.
 
 ## Contact form
 
-GitHub Pages can't run server code, so the form posts to [FormSubmit](https://formsubmit.co).
-Set `formEmail` in `src/data/site.ts`, deploy, submit the form once, and click the activation link FormSubmit emails you.
+The form posts to [FormSubmit](https://formsubmit.co), which emails each enquiry to `formEmail` in `lib/site.ts`.
+The first submission sends an activation email; click it once.
 
 ## Deploying
 
-Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and publishes it.
-One-time setup: in the repo, go to **Settings → Pages → Build and deployment** and set **Source** to **GitHub Actions**.
-
-### Custom domain later
-
-In `astro.config.mjs`, set `site` to your domain and `base` to `'/'`, then add the domain under Settings → Pages.
+- **Vercel:** builds automatically on every push to `main` (`vercel.json`).
+- **Netlify:** builds automatically (`netlify.toml`).
+- **GitHub Pages:** `.github/workflows/deploy.yml` builds and publishes on every push to `main`, under `/studio-ra-hu/`.
+  Settings → Pages → Source must be **GitHub Actions**.
