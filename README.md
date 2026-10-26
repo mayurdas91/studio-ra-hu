@@ -37,6 +37,14 @@ npm run build    # outputs to dist/
 5. Add `results:` only with numbers the client has verified.
 6. Remove `placeholder: true` when the write-up is final. That hides the draft flag.
 
+## Design: "Sunrise"
+
+- Colours, fonts and layout live in `src/styles/global.css` (tokens at the top).
+- Fonts (Unbounded and Hanken Grotesk) are self-hosted from npm, so there's no Google Fonts request.
+- The logo is `src/assets/brand/logo-mask.png`, a transparent cut-out used as a CSS mask. It takes the colour of the text around it: set `color` on `.logo` to recolour it.
+- The figures on the rising sun (10+ Years, 120+ Projects) are `stats` in `src/data/site.ts`.
+- Case studies without a cover image get sun-motif artwork automatically (`src/components/CaseArt.astro`).
+
 ## Contact form
 
 GitHub Pages can't run server code, so the form posts to [FormSubmit](https://formsubmit.co).

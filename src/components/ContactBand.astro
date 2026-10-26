@@ -1,0 +1,10 @@
+---
+import { url } from '../data/site';
+interface Props { title?: string; }
+const { title = 'Have a problem worth solving?' } = Astro.props;
+---
+
+<section class="cta">
+  <h2 data-reveal>{title}</h2>
+  <a class="button-sun" href={url('/contact/')} data-reveal style="--i:1">Start a conversation →</a>
+</section>
