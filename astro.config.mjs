@@ -12,7 +12,7 @@ const onGitHubPages = env.GITHUB_ACTIONS === 'true';
 function siteUrl() {
   if (onGitHubPages) return 'https://mayurdas91.github.io';
   if (env.NETLIFY === 'true' && env.URL) return env.URL;
-  if (env.VERCEL && env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  if (env.VERCEL) return 'https://studiorahu.vercel.app';
   return 'http://localhost:4321';
 }
 

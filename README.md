@@ -2,7 +2,7 @@
 
 Portfolio site for Studio Ra Hu, built with [Astro](https://astro.build) and deployed to GitHub Pages.
 
-Live at: https://mayurdas91.github.io/studio-ra-hu/
+Live at: https://studiorahu.vercel.app (also mirrored on GitHub Pages at https://mayurdas91.github.io/studio-ra-hu/)
 
 ## Run it locally
 
